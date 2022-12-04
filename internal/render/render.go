@@ -8,8 +8,9 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/oseintow/bookings/pkg/config"
-	"github.com/oseintow/bookings/pkg/models"
+	"github.com/justinas/nosurf"
+	"github.com/oseintow/bookings/internal/config"
+	"github.com/oseintow/bookings/internal/models"
 )
 
 var functions = template.FuncMap{}
@@ -21,12 +22,13 @@ func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
-func addDefaultData(td *models.TemplateData) *models.TemplateData {
+func addDefaultData(td *models.TemplateData, r *http.Request) *models.TemplateData {
+	td.CSRFToken = nosurf.Token(r)
 	return td
 }
 
 // RenderTemplate it renders template
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models.TemplateData) {
 	var tc map[string]*template.Template
 
 	if app.UseCache {
@@ -42,7 +44,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)
 		log.Fatal("Could not get template from template cache")
 	}
 
-	td = addDefaultData(td)
+	td = addDefaultData(td, r)
 
 	buf := new(bytes.Buffer)
 	err := t.Execute(buf, td)
