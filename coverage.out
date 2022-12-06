@@ -1,0 +1,12 @@
+mode: set
+/Users/michael/Sites/golang/bookings/cmd/web/main.go:22.13,24.16 2 0
+/Users/michael/Sites/golang/bookings/cmd/web/main.go:28.2,38.16 4 0
+/Users/michael/Sites/golang/bookings/cmd/web/main.go:24.16,26.3 1 0
+/Users/michael/Sites/golang/bookings/cmd/web/main.go:41.18,57.16 10 1
+/Users/michael/Sites/golang/bookings/cmd/web/main.go:62.2,73.12 6 1
+/Users/michael/Sites/golang/bookings/cmd/web/main.go:57.16,60.3 2 0
+/Users/michael/Sites/golang/bookings/cmd/web/middleware.go:10.53,11.71 1 0
+/Users/michael/Sites/golang/bookings/cmd/web/middleware.go:11.71,14.3 2 0
+/Users/michael/Sites/golang/bookings/cmd/web/middleware.go:18.45,29.2 3 1
+/Users/michael/Sites/golang/bookings/cmd/web/middleware.go:32.50,34.2 1 1
+/Users/michael/Sites/golang/bookings/cmd/web/routes.go:12.49,44.2 18 1
