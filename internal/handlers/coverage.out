@@ -1,0 +1,22 @@
+mode: set
+github.com/oseintow/bookings/internal/handlers/handlers.go:21.47,25.2 1 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:28.33,30.2 1 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:33.67,38.2 3 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:41.68,51.2 5 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:54.74,63.2 4 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:66.78,68.16 2 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:73.2,86.19 6 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:98.2,100.66 2 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:68.16,71.3 2 0
+github.com/oseintow/bookings/internal/handlers/handlers.go:86.19,96.3 4 0
+github.com/oseintow/bookings/internal/handlers/handlers.go:104.71,106.2 1 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:109.69,111.2 1 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:114.75,116.2 1 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:119.79,123.2 3 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:131.79,138.16 3 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:143.2,144.14 2 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:138.16,140.3 1 0
+github.com/oseintow/bookings/internal/handlers/handlers.go:148.70,150.2 1 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:152.81,155.9 2 1
+github.com/oseintow/bookings/internal/handlers/handlers.go:162.2,169.4 4 0
+github.com/oseintow/bookings/internal/handlers/handlers.go:155.9,160.3 4 1

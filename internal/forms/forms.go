@@ -2,7 +2,6 @@ package forms
 
 import (
 	"fmt"
-	"net/http"
 	"net/url"
 	"strings"
 
@@ -15,17 +14,17 @@ type Form struct {
 	Errors errors
 }
 
-// Valid returns true in there are no errors, otherwise false
-func (f *Form) Valid() bool {
-	return len(f.Errors) == 0
-}
-
 // New initializes a form struct
 func New(data url.Values) *Form {
 	return &Form{
 		data,
 		errors(map[string][]string{}),
 	}
+}
+
+// Valid returns true in there are no errors, otherwise false
+func (f *Form) Valid() bool {
+	return len(f.Errors) == 0
 }
 
 // Required checks fro required field
@@ -40,8 +39,8 @@ func (f *Form) Required(fields ...string) {
 }
 
 // Has checks if form field is in post and not empty
-func (f *Form) Has(field string, r *http.Request) bool {
-	x := r.Form.Get(field)
+func (f *Form) Has(field string) bool {
+	x := f.Get(field)
 
 	if x == "" {
 		return false
@@ -51,8 +50,8 @@ func (f *Form) Has(field string, r *http.Request) bool {
 }
 
 // MinLength checks for string minimum length
-func (f *Form) MinLength(field string, length int, r *http.Request) bool {
-	x := r.Form.Get(field)
+func (f *Form) MinLength(field string, length int) bool {
+	x := f.Get(field)
 
 	if len(x) < length {
 		f.Errors.Add(field, fmt.Sprintf("This field must be at least %d chanracters long", length))
