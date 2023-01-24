@@ -31,8 +31,20 @@ func main() {
 	}
 
 	defer db.SQL.Close()
+	defer close(app.MailChan)
+
+	fmt.Println("Starting mail listener")
+	listenForMail()
 
 	fmt.Println(fmt.Printf("Starting applicaton on port %s", portNumber))
+
+	// from := "me@here.com"
+	// auth := smtp.PlainAuth("", from, "", "localhost")
+	// err = smtp.SendMail("localhost:1025", auth, from, []string{"you@there.com"}, []byte("Hello there"))
+
+	// if err != nil {
+	// 	log.Println(err)
+	// }
 
 	// http.ListenAndServe(portNumber, nil)
 
@@ -42,7 +54,10 @@ func main() {
 	}
 
 	err = srv.ListenAndServe()
-	log.Fatal(err)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func run() (*driver.DB, error) {
@@ -51,6 +66,9 @@ func run() (*driver.DB, error) {
 	gob.Register(models.User{})
 	gob.Register(models.Room{})
 	gob.Register(models.Restriction{})
+
+	mailChan := make(chan models.MailData)
+	app.MailChan = mailChan
 
 	// change this to true when in production
 	app.InProduction = false

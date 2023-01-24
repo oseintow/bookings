@@ -14,4 +14,10 @@ type DatabaseRepo interface {
 	SearchAvailabilityByDatesByRoomID(start, end time.Time, roomID int) (bool, error)
 	SearchAvailabilityForAllRooms(start, end time.Time) ([]models.Room, error)
 	GetRoomById(id int) (models.Room, error)
+
+	UpdateUser(u models.User) error
+	GetUserById(id int) (models.User, error)
+	Authenticate(email, testPassword string) (int, string, error)
+
+	AllReservations() ([]models.Reservation, error)
 }
